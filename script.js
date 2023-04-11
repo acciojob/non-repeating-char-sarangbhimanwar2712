@@ -1,24 +1,25 @@
 //your JS code here. If required.
-function firstNonRepeatedCharacter() {
-  let str = prompt("Enter a string:");
+function firstNonRepeatedChar() {
+  let str = prompt("Please enter a string:");
   let charCount = {};
-  
-  // Iterate through the string and count the frequency of each character
   for (let i = 0; i < str.length; i++) {
-    let char = str.charAt(i);
-    charCount[char] = charCount[char] ? charCount[char] + 1 : 1;
+    let char = str[i];
+    if (charCount[char]) {
+      charCount[char]++;
+    } else {
+      charCount[char] = 1;
+    }
   }
-  
-  // Find the first non-repeated character
   for (let j = 0; j < str.length; j++) {
-    let char = str.charAt(j);
+    let char = str[j];
     if (charCount[char] === 1) {
       return char;
     }
   }
-  
-  return null; // If no non-repeated character is found
+  return null;
 }
 
-// Call the function and log the result
-console.log(firstNonRepeatedCharacter());
+// example usage
+let result = firstNonRepeatedChar();
+console.log(result);
+
